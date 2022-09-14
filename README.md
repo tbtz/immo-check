@@ -23,7 +23,7 @@
 7. Ensure you have downloaded the IFTTT app to your smartphone, are logged in and the created Applet is active
 
 ### Setup your Chrome Extension
-1. Download the latest version of this Chrome extension
+1. Download the latest version of this Chrome extension: https://github.com/tbtz/immo-check/releases/latest
 2. Open the script.js file with a text editor of your choice
 3. In the first few lines of the file you will find the point where you can insert your event name and your IFTTT Key
 4. Save the changes and close the file
