@@ -1,11 +1,30 @@
-### Configure the IFTTT Applet
-1. Go to IFTTT
-2. Create a new Applet
-3. Configure the trigger
+# ImmoScout24 Bot made with IFTTT & a Chrome Extension
+
+## How does the Bot work?
+The Bot analyses ImmoScout's search results in an open chrome browser.
+It saves the current state of the search results and rechecks it every 60 seconds.
+Each time, the bot detects a new item on the results page, it sends you an notification to your phone via an IFTTT Applet.
+The notification includes the description and the preview image of the new item and a click on it redirects to directly to the ImmoScout app.
+
+
+ImmoScout has a very good Bot detection that makes it nearly impossible to scrape their website 100% programmatically. That's why I impelented this solution as a Chrome Extension which works quite well.
+
+## How to setup the Bot?
+
+### What do you need?
+- an [IFTTT](https://ifttt.com/) account
+- a Chrome Browser
+- a smartphone with the IFTTT App installed
+
+### How to configure IFTTT?
+1. Go to [IFTTT](https://ifttt.com/) and login (or register)
+2. [Create a new Applet](https://ifttt.com/create) (this will be the application that forwards the notification from your Chrome Browser to your smartphone)
+3. Configure the trigger ("If This")
 	1. Choose a service -> Webhooks
 	2. Choose a trigger "Receive a web request" (not the "JSON playload" one)
 	3. Choose an event name and save it for later, e.g. "immo_check"
-4. Configure the action
+
+4. Configure the action ("Then That")
 	1. Choose a service -> Notifications
 	2. Choose an action -> "Send a rich notification from the IFTTT app"
 	3. Edit action fields
@@ -16,26 +35,31 @@
 			- Image URL: 
 		2. Create action
 	4. Continue
+
 5. Give your Applet a title and click on Finish
 6. Find out your IFTTT Key to connect it to the chrome extension
 	1. Visit https://ifttt.com/maker_webhooks and click on the "Documentetion" button.
 	2. Copy the key and save it for later
 7. Ensure you have downloaded the IFTTT app to your smartphone, are logged in and the created Applet is active
 
-### Setup your Chrome Extension
-1. Download the latest version of this Chrome extension: https://github.com/tbtz/immo-check/releases/latest
-2. Open the script.js file with a text editor of your choice
-3. In the first few lines of the file you will find the point where you can insert your event name and your IFTTT Key
+### How to connect the extension to my IFTTT Applet?
+1. Download the latest version of the immo-check Chrome extension: https://github.com/tbtz/immo-check/releases/latest
+2. Unzip the downloaded file, open it and then open the `script.js` file with a text editor of your choice
+3. In the first few lines of the file you will find the point where you can insert your event name and your IFTTT key
 4. Save the changes and close the file
 
-### Add the extension to your Chrome Browser
+### How to add the extension to my Chrome Browser?
 5. Open your Google Chrome Browser
-6. Click on the three dots on the top right and click on "Weitere Tools" -> "Erweiterungen"
-7. On the extensions page, click the button "Entoackte Erweiterung laden" on the top left
-8. Choose the folder that includes the flow files, script.js and manifest.json
+6. Click on the three dots on the top right corner of the browser and click on "More Tools" -> "Extensions"
+7. On the extensions page, click the button "Entpackte Erweiterung laden" on the top left corner
+8. Choose the folder that includes the two files (`script.js` and `manifest.json`)
 
 ### How to use the Immo Check extension:
-1. Open the search results page of Immoscout (The link must start with https://www.immobilienscout24.de/Suche/...)
-2. Now the extension will analyse the website every minute (+/- 10s to avoid bot detection) and inform you if it founds new items.
-3. Ensure you leave browser and the website open, otherwise the bot will not work.
-4. Sometimes Immoscout founds out that we are using a programm to analyse their page. In this case they are blocking the website and showing a Captcha ("I am not a robot" task). If this happens, the bot will inform you about it. To solve this Captcha, simply look at the browser window and solve the task. If the Captcha was solved, you will see the search results again and get another notification from the bot, that the Captcha was solved.
+1. Open a search results page of Immoscout (e.g. from a saved search or a new search) (The link must start with https://www.immobilienscout24.de/Suche/...)
+2. Now the extension will analyse the website every minute (+/- 10s to avoid bot detection) and informs you when it found new items.
+3. Ensure you leave browser and the website open, otherwise the Bot will not work.
+
+### ImmoScout's Bot Protection
+Sometimes Immoscout founds out that we are using a programm to analyse their page. In this case they are blocking the website and showing a Captcha ("I am not a robot" task). If this happens, the Bot will inform you with a notification about it.
+
+To solve this Captcha, simply look at the browser and solve the task. After the Captcha was solved, you will see the search results again and get another notification from the bot, that the Captcha was solved. Sometimes the Captcha even disaapears on their own. If this happens, the Bot will also inform you about that with a notification.
