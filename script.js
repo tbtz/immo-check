@@ -2,8 +2,8 @@
 
     ///////// INSERT YOUR KEY & EVENT NAME BELOW /////////
 
-    const iftttKey = "abcd1234efgh5678ijkl90"
-    const iftttEventName = "immo_check"
+    const iftttKey = "paste_here_your_ifttt_key"
+    const iftttEventName = "paste_here_your_event_name"
 
     //////////////////////////////////////////////////////
 
