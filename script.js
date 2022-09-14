@@ -1,18 +1,19 @@
-///////// INSERT YOUR KEY & EVENT NAME BELOW /////////
-
-const iftttKey = "paste_here_your_ifttt_key"
-const iftttEventName = "paste_here_your_event_name"
-
-//////////////////////////////////////////////////////
-
 (async function () {    
+
+    ///////// INSERT YOUR KEY & EVENT NAME BELOW /////////
+
+    const iftttKey = "abcd1234efgh5678ijkl90"
+    const iftttEventName = "immo_check"
+
+    //////////////////////////////////////////////////////
+
     const recheckIntervalInMs = 60000 + ( Math.round( Math.random() * 20 - 10 ) * 1000 )
     const captchaWasVisibleBefore = (await chrome.storage.local.get("captchaIsVisible")).captchaIsVisible;  
     const captchaIsVisible =  !!document.querySelector('.main__captcha')
 
     if (captchaIsVisible && !captchaWasVisibleBefore) {
      
-        await sendMessage("Captcha lösen! ❌", null, null)
+        await sendMessage("Solve the Captcha! ❌", null, null)
         await chrome.storage.local.set({ "captchaIsVisible": true });  
     
     }
@@ -20,7 +21,7 @@ const iftttEventName = "paste_here_your_event_name"
     if (!captchaIsVisible) {
 
         if (captchaWasVisibleBefore ) {
-            await sendMessage("Captcha gelöst! ✅", null, null)
+            await sendMessage("Captcha solved! ✅", null, null)
         }
 
         const items = [...document.querySelectorAll("li.result-list__listing")]
@@ -31,6 +32,7 @@ const iftttEventName = "paste_here_your_event_name"
 
         if (!previousIds) {
             console.log("Immo Check: Initial items were saved successfully")
+            await sendMessage("Immo Check setup was successful! ✅", null, null)
         } else if (newIds.length == 0) {
             console.log("Immo Check: No new items were found on the page. Check again in " + (recheckIntervalInMs / 1000) + "s.")
         } else {
@@ -61,7 +63,7 @@ const iftttEventName = "paste_here_your_event_name"
 
 
     function sendMessage(text, link, image) {
-        const url = `https://maker.ifttt.com/trigger/immo_check/with/key/${iftttKey}?value1=${text}&value2=${link}&value3=${image}`
+        const url = `https://maker.ifttt.com/trigger/${iftttEventName}/with/key/${iftttKey}?value1=${text}&value2=${link}&value3=${image}`
         return fetch(url, { mode: "no-cors" });
     }
 
