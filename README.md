@@ -34,8 +34,11 @@ ImmoScout has a very good Bot detection that makes it nearly impossible to scrap
 			- Title: Immo Check
 			- Link URL: {{Value2}}
 			- Image URL: {{Value3}}
+
+<img src="https://user-images.githubusercontent.com/9198250/190218652-f5f85db7-e34d-4a7e-8dd3-2b4fa2dc858c.png" height="400"></img>
+
 		2. Create action
-		
+
 	4. Continue
 
 5. Give your Applet a title (e.g. "Immo Check") and click on Finish
@@ -48,18 +51,24 @@ ImmoScout has a very good Bot detection that makes it nearly impossible to scrap
 1. Download the latest version of the immo-check Chrome extension: https://github.com/tbtz/immo-check/releases/latest
 2. Unzip the downloaded file, open it and then open the `script.js` file with a text editor of your choice
 3. In the first few lines of the file you will find the point where you can insert your event name and your IFTTT key
+
+Example:
+
+<img src="https://user-images.githubusercontent.com/9198250/190223072-482d1c77-500c-4031-ab90-3542d21e7616.png" height="150"></img>
+
 4. Save the changes and close the file
 
 ### How to add the extension to my Chrome Browser?
-5. Open your Google Chrome Browser
-6. Click on the three dots on the top right corner of the browser and click on "More Tools" -> "Extensions"
-7. On the extensions page, click the button "Entpackte Erweiterung laden" on the top left corner
-8. Choose the folder that includes the two files (`script.js` and `manifest.json`)
+1. Open your Google Chrome Browser
+2. Click on the three dots on the top right corner of the browser and click on "More Tools" -> "Extensions"
+3. On the extensions page, ensure "Developer mode" in the top right corner is enabled and click the button "Load unpacked" in the top left corner
+4. Select the immo-check folder that includes the `script.js` and `manifest.json` and confirm your selection.
 
 ### How to use the Immo Check extension:
-1. Open a search results page of Immoscout (e.g. from a saved search or a new search) (The link must start with https://www.immobilienscout24.de/Suche/...)
-2. Now the extension will analyse the website every minute (+/- 10s to avoid bot detection) and informs you when it found new items.
-3. Ensure you leave browser and the website open, otherwise the Bot will not work.
+1. Open a search results page of Immoscout (e.g. from a [saved search](https://www.immobilienscout24.de/savedsearch/myscout/manage/) or a new search) (The link must start with https://www.immobilienscout24.de/Suche/...)
+2. If everything went well, you will now get a notification with the content "Immo Check setup was successful! ✅"
+3. Now the extension will analyse the website every minute (+/- 10s to avoid bot detection) and informs you when it found new items.
+4. Ensure you leave browser and the website open, otherwise the Bot will not work.
 
 ### ImmoScout's Bot Protection
 Sometimes Immoscout founds out that we are using a programm to analyse their page. In this case they are blocking the website and showing a Captcha ("I am not a robot" task). If this happens, the Bot will inform you with a notification about it.
