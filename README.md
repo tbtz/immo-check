@@ -18,29 +18,31 @@ ImmoScout has a very good Bot detection that makes it nearly impossible to scrap
 
 ### How to configure IFTTT?
 1. Go to [IFTTT](https://ifttt.com/) and login (or register)
-2. [Create a new Applet](https://ifttt.com/create) (this will be the application that forwards the notification from your Chrome Browser to your smartphone)
+2. Click on "[Create](https://ifttt.com/create)" to create a new Applet (this will be the application that forwards the notification from your Chrome Browser to your smartphone)
 3. Configure the trigger ("If This")
 	1. Choose a service -> Webhooks
 	2. Choose a trigger "Receive a web request" (not the "JSON playload" one)
-	3. Choose an event name and save it for later, e.g. "immo_check"
+	3. Choose an event name and save it for later, e.g. "immo_check" (Use only letters, numbers, and underscores)
 
 4. Configure the action ("Then That")
 	1. Choose a service -> Notifications
 	2. Choose an action -> "Send a rich notification from the IFTTT app"
 	3. Edit action fields
-		1. Type in the following values into the text fields
+	
+		1. Type the following values into the text fields
 			- Message: {{Value1}}
 			- Title: Immo Check
 			- Link URL: {{Value2}}
-			- Image URL: 
+			- Image URL: {{Value3}}
 		2. Create action
+		
 	4. Continue
 
-5. Give your Applet a title and click on Finish
+5. Give your Applet a title (e.g. "Immo Check") and click on Finish
 6. Find out your IFTTT Key to connect it to the chrome extension
 	1. Visit https://ifttt.com/maker_webhooks and click on the "Documentetion" button.
 	2. Copy the key and save it for later
-7. Ensure you have downloaded the IFTTT app to your smartphone, are logged in and the created Applet is active
+7. Ensure you have downloaded the IFTTT app to your smartphone, are logged in and the created Applet is "Connected" (can be found under "My Applets")
 
 ### How to connect the extension to my IFTTT Applet?
 1. Download the latest version of the immo-check Chrome extension: https://github.com/tbtz/immo-check/releases/latest
