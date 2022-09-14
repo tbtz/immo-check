@@ -1,7 +1,9 @@
+///////// INSERT YOUR KEY & EVENT NAME BELOW /////////
+
 const iftttKey = "paste_here_your_ifttt_key"
 const iftttEventName = "paste_here_your_event_name"
 
-//////////////////////////////
+//////////////////////////////////////////////////////
 
 (async function () {    
     const recheckIntervalInMs = 60000 + ( Math.round( Math.random() * 20 - 10 ) * 1000 )
