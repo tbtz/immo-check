@@ -6,7 +6,7 @@ It saves the current state of the search results and rechecks it every 60 second
 Each time, the bot detects a new item on the results page, it sends you an notification to your phone via an IFTTT Applet.
 The notification includes the description and the preview image of the new item and a click on it redirects to directly to the ImmoScout app.
 
-
+### Why did I choose to use a Chrome Extension for scraping?
 ImmoScout has a very good Bot detection that makes it nearly impossible to scrape their website 100% programmatically. That's why I impelented this solution as a Chrome Extension which works quite well.
 
 ## How to setup the Bot?
