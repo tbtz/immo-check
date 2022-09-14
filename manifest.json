@@ -2,7 +2,7 @@
     "name": "Immo Check",
     "description": "Immo Check!",
     "version": "1.0",
-    "manifest_version": 1,
+    "manifest_version": 3,
     "permissions": [
         "storage"
     ],
