@@ -28,17 +28,13 @@ ImmoScout has a very good Bot detection that makes it nearly impossible to scrap
 	1. Choose a service -> Notifications
 	2. Choose an action -> "Send a rich notification from the IFTTT app"
 	3. Edit action fields
-	
 		1. Type the following values into the text fields
 			- Message: {{Value1}}
 			- Title: Immo Check
 			- Link URL: {{Value2}}
 			- Image URL: {{Value3}}
-
-<img src="https://user-images.githubusercontent.com/9198250/190218652-f5f85db7-e34d-4a7e-8dd3-2b4fa2dc858c.png" height="400"></img>
-
+		<img src="https://user-images.githubusercontent.com/9198250/190218652-f5f85db7-e34d-4a7e-8dd3-2b4fa2dc858c.png" height="400"></img>
 		2. Create action
-
 	4. Continue
 
 5. Give your Applet a title (e.g. "Immo Check") and click on Finish
