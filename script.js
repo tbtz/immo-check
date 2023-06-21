@@ -1,4 +1,4 @@
-(async function () {    
+(async function () {
 
     ///////// INSERT YOUR KEY & EVENT NAME BELOW /////////
 
@@ -7,20 +7,20 @@
 
     //////////////////////////////////////////////////////
 
-    const recheckIntervalInMs = 60000 + ( Math.round( Math.random() * 20 - 10 ) * 1000 )
-    const captchaWasVisibleBefore = (await chrome.storage.local.get("captchaIsVisible")).captchaIsVisible;  
-    const captchaIsVisible =  !!document.querySelector('.main__captcha')
+    const recheckIntervalInMs = 60000 + (Math.round(Math.random() * 20 - 10) * 1000)
+    const captchaWasVisibleBefore = (await chrome.storage.local.get("captchaIsVisible")).captchaIsVisible;
+    const captchaIsVisible = !!document.querySelector('.main__captcha')
 
     if (captchaIsVisible && !captchaWasVisibleBefore) {
-     
+
         await sendMessage("Solve the Captcha! ❌", null, null)
-        await chrome.storage.local.set({ "captchaIsVisible": true });  
-    
+        await chrome.storage.local.set({ "captchaIsVisible": true });
+
     }
 
     if (!captchaIsVisible) {
 
-        if (captchaWasVisibleBefore ) {
+        if (captchaWasVisibleBefore) {
             await sendMessage("Captcha solved! ✅", null, null)
         }
 
@@ -42,16 +42,17 @@
 
             for (const id of newIds) {
                 const element = document.querySelector(`li[data-id="${id}"]`)
-                const text = element.querySelector("h5").innerText.replace("NEU", "")
+                const text = element.querySelector("h2").innerText.replace("NEU", "")
                 const link = element.querySelector("a").href
-                const imgElem = element.querySelector('img[alt="Immobilienbild"]')
+                const allImages = element.querySelectorAll('img[alt="Immobilienbild"]')
+                const imgElem = allImages[1] || allImages[0]
                 let image = imgElem ? imgElem.src : null
                 await sendMessage(text, link, image)
             }
         }
 
         await chrome.storage.local.set({
-            "immoIds": currentIds, 
+            "immoIds": currentIds,
             "captchaIsVisible": false
         })
     }
